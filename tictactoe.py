@@ -6,7 +6,6 @@ board = [
     [" ", " ", " "]
 ]
 
-
 def main():
     counter = 0
     while counter < 9:
@@ -16,8 +15,9 @@ def main():
             opponent(counter)
             printboard()
         counter = counter + 1
-        
-
+        checkwin()
+    print("is tie")
+    exit()        
 
 def printboard():
     print(board[0][0], '|', board[0][1], '|', board[0][2])
@@ -50,5 +50,47 @@ def opponent(counter):
                 board[i][j] = "o"
                 return
     
-
+def checkwin():
+    for i in range(3):
+        if board[i][0] == board[i][1] and board[i][1] == board[i][2] and board[i][0] == "x":
+            print("player won")
+            printboard()
+            exit()
+        elif board[i][0] == board[i][1] and board[i][1] == board[i][2] and board[i][0] == "o":
+            print("bot won")
+            printboard()
+            print("row")
+            exit()
+  
+    for i in range(3):
+        if board[0][i] == board[1][i] and board[1][i] == board[2][i] and board[0][i] == "x":
+            print("player won")
+            printboard()
+            exit()
+        elif board[0][i] == board[1][i] and board[1][i] == board[2][i] and board[0][i] == "o":
+            print("bot won")
+            printboard()
+            print("col")
+            exit()
+    
+    if board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] == "x":
+        print("player won")
+        printboard()
+        exit()
+    elif board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] == "o":
+        print("bot won")
+        printboard()
+        print("diag")
+        exit()
+            
+    if board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] == "x":
+        print("player won")
+        printboard()
+        exit()
+    elif board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] == "o":
+        print("bot won")
+        printboard()
+        print("diag")
+        exit()
+     
 main()
