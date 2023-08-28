@@ -33,9 +33,10 @@ def userinput():
     row_ref = int(input("what row would you like to place your piece? "))
     column_ref = int(input("what column would you like to place your piece? "))
 
-    while row_ref not in range(3) and column_ref not in range(3) or board[row_ref - 1][column_ref -1] != " ":
-        row_ref = int(input("what row would you like to place your piece? "))
-        column_ref = int(input("what column would you like to place your piece? "))
+    while (row_ref not in range(4) and column_ref not in range(4)
+           or board[row_ref - 1][column_ref -1] != " "):
+        row_ref = int(input("what row to place your piece? "))
+        column_ref = int(input("what column to place your piece? "))
  
     play(row_ref, column_ref)
 
@@ -52,42 +53,50 @@ def opponent(counter):
     
 def checkwin():
     for i in range(3):
-        if board[i][0] == board[i][1] and board[i][1] == board[i][2] and board[i][0] == "x":
+        if (board[i][0] == board[i][1] and board[i][1] == board[i][2]
+            and board[i][0] == "x"):
             print("player won")
             printboard()
             exit()
-        elif board[i][0] == board[i][1] and board[i][1] == board[i][2] and board[i][0] == "o":
+        elif (board[i][0] == board[i][1] and board[i][1] == board[i][2]
+        and board[i][0] == "o"):
             print("bot won")
             printboard()
             print("row")
             exit()
   
     for i in range(3):
-        if board[0][i] == board[1][i] and board[1][i] == board[2][i] and board[0][i] == "x":
+        if (board[0][i] == board[1][i] and board[1][i] == board[2][i]
+            and board[0][i] == "x"):
             print("player won")
             printboard()
             exit()
-        elif board[0][i] == board[1][i] and board[1][i] == board[2][i] and board[0][i] == "o":
+        elif (board[0][i] == board[1][i] and board[1][i] == board[2][i]
+            and board[0][i] == "o"):
             print("bot won")
             printboard()
             print("col")
             exit()
     
-    if board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] == "x":
+    if (board[0][0] == board[1][1] and board[1][1] == board[2][2]
+        and board[0][0] == "x"):
         print("player won")
         printboard()
         exit()
-    elif board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] == "o":
+    elif (board[0][0] == board[1][1] and board[1][1] == board[2][2] 
+        and board[0][0] == "o"):
         print("bot won")
         printboard()
         print("diag")
         exit()
             
-    if board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] == "x":
+    if (board[0][2] == board[1][1] and board[1][1] == board[2][0]
+        and board[0][2] == "x"):
         print("player won")
         printboard()
         exit()
-    elif board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] == "o":
+    elif (board[0][2] == board[1][1] and board[1][1] == board[2][0] 
+        and board[0][2] == "o"):
         print("bot won")
         printboard()
         print("diag")
