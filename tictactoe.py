@@ -31,14 +31,12 @@ def printboard():
 
 
 def userinput():
-    row_ref = int(input("what row would you like to place your piece? "))
-    column_ref = int(input("what column would you like to place your piece? "))
-
-
-    while (row_ref not in range(4) and column_ref not in range(4)
-        or board[row_ref - 1][column_ref -1] != " "):
+    while True:
         row_ref = int(input("what row to place your piece? "))
         column_ref = int(input("what column to place your piece? "))
+        if(row_ref > 0 and row_ref < 4 and column_ref > 0 and column_ref < 4
+        and board[row_ref - 1][column_ref -1] == " "):
+            break
  
     board[row_ref - 1][column_ref - 1] = "x"
 
